@@ -74,13 +74,13 @@ public class Book {
 	/**
 	 * @return the price
 	 */
-	public double getprice() {
+	public double getPrice() {
 		return price;
 	}
 	/**
 	 * @param price the price to set
 	 */
-	public void setprice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	

@@ -14,7 +14,7 @@ import com.backendprogramming.bookstore.domain.BookRepository;
 public class BookController {
 	@Autowired
 	private BookRepository repository;
-	@GetMapping(value = {"/", "/booklist"})
+	@GetMapping("/booklist")
 	public String bookList(Model model) {
 		model.addAttribute("books", repository.findAll());
 		return "booklist";
