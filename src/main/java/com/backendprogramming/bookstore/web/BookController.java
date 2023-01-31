@@ -39,4 +39,10 @@ public class BookController {
 		repository.deleteById(isbn);
 		return "redirect:../booklist";
 	}
+
+	@RequestMapping(value = "/edit/{isbn}")
+	public String editBook(@PathVariable("isbn") Long isbn, Model model){
+		model.addAttribute("book", repository.findById(isbn));
+		return "editbook";
+	}
 }
