@@ -1,19 +1,27 @@
-package com.backendprogramming.bookstore;
+package com.backendprogramming.bookstore.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+
+@Entity
 public class Book {
-	public String title;
-	public String author;
-	public int publicationYear;
-	public String isbn; // Depends on if it's stored with / without dashes (-)
-	public int prize;
+	@Id
+	private long isbn; // ISBN-13
+	private String title;
+	private String author;
+	private int publicationYear;
+	private double price;
 	
-	public Book(String title, String author, int publicationYear, String isbn, int prize) {
+	public Book() {}
+	
+	public Book(long isbn, String title, String author, int publicationYear, double price) {
 		super();
+		this.isbn = isbn;
 		this.title = title;
 		this.author = author;
 		this.publicationYear = publicationYear;
-		this.isbn = isbn;
-		this.prize = prize;
+		this.price = price;
 	}
 	/**
 	 * @return the title
@@ -54,26 +62,31 @@ public class Book {
 	/**
 	 * @return the isbn
 	 */
-	public String getIsbn() {
+	public long getIsbn() {
 		return isbn;
 	}
 	/**
 	 * @param isbn the isbn to set
 	 */
-	public void setIsbn(String isbn) {
+	public void setIsbn(long isbn) {
 		this.isbn = isbn;
 	}
 	/**
-	 * @return the prize
+	 * @return the price
 	 */
-	public int getPrize() {
-		return prize;
+	public double getprice() {
+		return price;
 	}
 	/**
-	 * @param prize the prize to set
+	 * @param price the price to set
 	 */
-	public void setPrize(int prize) {
-		this.prize = prize;
+	public void setprice(int price) {
+		this.price = price;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "Book: [isbn=" + isbn + ", title=" + title + ", author=" + author + ", publication year=" + publicationYear + ", price=" + price + "]";
+	}
+	
 }
