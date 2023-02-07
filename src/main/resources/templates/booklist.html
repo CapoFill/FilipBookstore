@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Book list</title>
-<link href="/style/bootstrap.min.css" th:href="@{/style/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
+<link href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 	<table class="table table-striped">
@@ -17,6 +17,7 @@
 		<tr th:each="book : ${books}">
 			<td th:text="${book.author}"></td>
 			<td th:text="${book.title}"></td>
+			<td th:text="${book.category.name}"></td>
 			<td th:text="${book.isbn}"></td>
 			<td th:text="${book.publicationYear}"></td>
 			<td th:text="${book.price + '€'}"></td>

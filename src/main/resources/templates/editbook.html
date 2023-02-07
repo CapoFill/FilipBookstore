@@ -18,6 +18,10 @@
 			<input type="text" id="inpPublicationYear" th:field="*{publicationYear}"/>
 			<label for="inpPrice">Price</label> 
 			<input type="text" id="inpPrice" th:field="*{price}"/>
+			<label for="inpCategory">Category</label>
+			<select id="categoryList" th:field="*{category}"> 
+				<option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+			</select>
 			<input class="btn btn-success" type="submit" value="Save"></input>
 		</form>
 	</div>
