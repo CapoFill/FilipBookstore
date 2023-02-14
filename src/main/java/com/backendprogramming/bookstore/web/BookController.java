@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.backendprogramming.bookstore.domain.Book;
@@ -62,7 +63,7 @@ public class BookController {
     }    
 	
 	//REST return book by isbn
-    @RequestMapping(value="/book/{isbn}", method = RequestMethod.GET)
+    @RequestMapping(value = "/book/{isbn}", method = RequestMethod.GET)
     public @ResponseBody Optional<Book> findBookRest(@PathVariable("isbn") Long isbn) {	
     	return repository.findById(isbn);
     }       
