@@ -11,6 +11,8 @@ import com.backendprogramming.bookstore.domain.Book;
 import com.backendprogramming.bookstore.domain.BookRepository;
 import com.backendprogramming.bookstore.domain.Category;
 import com.backendprogramming.bookstore.domain.CategoryRepository;
+import com.backendprogramming.bookstore.domain.User;
+import com.backendprogramming.bookstore.domain.UserRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
@@ -22,7 +24,7 @@ public class BookstoreApplication {
 	}
 
 	@Bean
-	public CommandLineRunner bookDemo(BookRepository repository, CategoryRepository crepository) {
+	public CommandLineRunner bookDemo(BookRepository repository, CategoryRepository crepository, UserRepository urepository) {
 		return (args) -> {
 			log.info("Saving categories");
 			crepository.save(new Category("Mythology"));
@@ -41,6 +43,15 @@ public class BookstoreApplication {
 					log.info(category.toString());
 				}
 			}
+			// Create users: admin/admin user/user
+			User user1 = new User("user"
+			,
+			"$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
+			User user2 = new User("admin"
+			,
+			"$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
+			urepository.save(user1);
+			urepository.save(user2);
 		};
 	}
 }

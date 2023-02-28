@@ -55,7 +55,7 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/delete/{isbn}", method = RequestMethod.GET)
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public String deleteStudent(@PathVariable("isbn") Long isbn, Model model) {
 		repository.deleteById(isbn);
 		return "redirect:../booklist";
